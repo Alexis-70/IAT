@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+#test-container {
+    margin-top: 50px;
+}
+
+#test-area {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin: 50px auto;
+}
+
+.category-label {
+    position: absolute;
+    font-size: 24px;
+    width: 200px;
+}
+
+#left-label {
+    left: 10%;
+    top: 10%;
+    color: blue;
+}
+
+#right-label {
+    right: 10%;
+    top: 10%;
+    color: red;
+}
+
+#stimulus {
+    font-size: 36px;
+    margin-top: 100px;
+    color: black;
+}
+
+#feedback {
+    color: red;
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Pulsanti per mobile */
+#button-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    font-size: 24px;
+    padding: 15px 30px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #0056b3;
+}
+
+button:focus {
+    outline: none;
+}
