@@ -15,6 +15,8 @@ document.addEventListener('keydown', function(e) {
     if (e.code === 'Space') {
         if (block === 1) {
             startTest();
+        } else {
+            startTest();  // Avvia il test per i blocchi successivi
         }
     } else if (e.code === 'ArrowLeft') {
         handleResponse('Io');
@@ -24,6 +26,7 @@ document.addEventListener('keydown', function(e) {
 });
 
 function startTest() {
+    console.log('Avvio del test per il blocco:', block);
     document.getElementById('instructions').textContent = '';
     trialsCompleted = 0;
     showNextStimulus();
@@ -32,6 +35,8 @@ function startTest() {
 function showNextStimulus() {
     let stimulusArray;
     
+    console.log('Mostrare il prossimo stimolo per il blocco:', block);
+
     // Determina l'array di stimoli e la risposta corretta in base al blocco
     if (block === 1 || block === 4) {
         stimulusArray = (Math.random() < 0.5) ? stimuliIo : stimuliNonIo;
@@ -52,10 +57,12 @@ function showNextStimulus() {
 
 function handleResponse(response) {
     let reactionTime = performance.now() - startTime;
+    console.log('Risposta:', response, 'Risposta corretta:', correctResponse);
 
     if (response === correctResponse) {
         document.getElementById('feedback').textContent = '';
         trialsCompleted++;
+        console.log('Prove completate:', trialsCompleted);
         if (trialsCompleted >= 20) {  // Supponendo che ci siano 20 prove per blocco
             changeBlock();
         } else {
@@ -67,6 +74,7 @@ function handleResponse(response) {
 }
 
 function changeBlock() {
+    console.log('Cambio al blocco:', block);
     block++;
     if (block > 5) {
         endTest();
@@ -83,4 +91,5 @@ function changeBlock() {
 
 function endTest() {
     document.getElementById('stimulus').textContent = 'Test completato!';
+    console.log('Test completato');
 }
